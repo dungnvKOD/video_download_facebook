@@ -8,4 +8,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+<!--    <style name="ThemeDialog" parent="Theme.AppCompat.Dialog">-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--        <item name="windowFixedWidthMinor">90%</item>-->
+<!--        <item name="windowFixedHeightMajor">90%</item>-->
+<!--        <item name="android:windowCloseOnTouchOutside">false</item>-->
+<!--    </style>-->
+
+    <style name="ThemeDialog" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">#ff90ff90</item>
+    </style>
+
+    <style name="StypeButtonDialog">
+        <item name="android:layout_marginTop">@dimen/dimen_2x</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_x2x</item>
+        <item name="android:layout_marginStart">@dimen/dimen_x2x</item>
+        <item name="android:layout_height">@dimen/dimen_6x</item>
+
+    </style>
+
 </resources>

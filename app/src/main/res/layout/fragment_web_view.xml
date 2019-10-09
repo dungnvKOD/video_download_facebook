@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    tools:ignore="VectorDrawableCompat">
+
+    <LinearLayout
+        android:id="@+id/appbarFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtLinkWeb"
+            fontPath="fonts/Roboto-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix" />
+
+
+        <ImageView
+            android:id="@+id/img_refresh"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rip_refress"
+            android:padding="8dp"
+            android:src="@drawable/ic_refresh" />
+    </LinearLayout>
+
+
+    <WebView
+        android:id="@+id/webFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbarFacebook"
+        android:padding="@dimen/dimen_2x">
+
+    </WebView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#131d27">
+
+
+        <LinearLayout
+            android:id="@+id/llBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_2x">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_backbrowse"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dimen_05x"
+                android:gravity="center_vertical"
+                android:text="@string/back"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/llBack">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/nexts"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_nextbrowse" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_x1x"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imbHomeFB"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/dimen_1x"
+                android:background="#00000000"
+                app:srcCompat="@drawable/ic_homepage" />
+
+            <ImageButton
+                android:id="@+id/imbClose"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                app:srcCompat="@drawable/ic_close_browse" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

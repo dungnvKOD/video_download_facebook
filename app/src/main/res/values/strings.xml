@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">video_download_facebook</string>
+
+    <!--   splash  -->
+    <string name="text_logo">VIDEO DOWNLOADER</string>
+
+    <!--  Main activity  -->
+    <string name="APP_PERMISSIONS">APP PERMISSIONS</string>
+    <string name="Allow_Storage_Permission">Allow Storage Permission</string>
+    <string name="allow">Allow</string>
+    <string name="no_video">No video</string>
+    <string name="how_to">How to download video</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--  Setting  -->
+    <string name="text_title_setting">Setting</string>
+
+    <!--    webview-->
+    <string name="back">back</string>
+    <string name="nexts">next</string>
 </resources>

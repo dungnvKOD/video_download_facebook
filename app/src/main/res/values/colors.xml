@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#006fff</color>
+    <color name="colorPrimaryDark">#006fff</color>
+    <color name="colorTabLayout">#223748</color>
+    <color name="colorBackGround">#131d27</color>
+    <color name="colorAccent">#223748</color>
+    <color name="colorWhite">#FFF</color>
+
+    <color name="colorView">#313e47</color>
+    <color name="colorStart">#c5c5c5</color>
+
+    <!--downloadVideoLink-->
+    <color name="colorPasteLink">#2b343d</color>
+    <color name="colorCrystal">#00555552</color>
+
+    <!--fragment download link-->
+    <color name="colorTextDownload">#898e94</color>
+    <color name="colorOR">#787a7c</color>
+    <color name="colorBrowseFb">#0073ff</color>
+    <color name="colorTextBrowse">#4c545c</color>
+    <color name="colorBackgroundFagLink">#1f2933</color>
+
+    <!--dialog-->
+    <color name="roundDialog">#FFFFFF</color>
+    <color name="textDialog">#ebebeb</color>
+    <color name="colorAudio">#33b876</color>
+    <color name="detail_black">#000000</color>
+
+    <color name="color_View">#dcdce0</color>
+    <color name="color_Ripple">#615D5D</color>
+
+    <color name="setting_View">#232D35</color>
+
+    <color name="colorBlack">#000000</color>
+
+    <!--ripple-->
+    <color name="rip_Color">#0073ff</color>
+    <color name="color_feedback">#cdcdcd</color>
 </resources>

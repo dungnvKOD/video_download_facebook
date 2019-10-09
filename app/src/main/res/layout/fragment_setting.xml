@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="@color/colorBackGround"
+    android:layout_height="match_parent"
+    tools:context=".ui.frags.SettingFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/toolbar_setting"
+                android:background="@drawable/rip_circle_blue"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_width="@dimen/dimen_4x"
+                android:layout_height="@dimen/dimen_4x" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/lobster"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_marginStart="@dimen/dimen_2x"
+                android:layout_toEndOf="@id/toolbar_setting"
+                android:layout_centerVertical="true"
+                android:text="@string/text_title_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+</LinearLayout>

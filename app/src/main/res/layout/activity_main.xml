@@ -1,18 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorBackGround"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activitys.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:ignore="MissingConstraints">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_logo"
+                android:layout_width="@dimen/dimen_4x"
+                android:layout_height="@dimen/dimen_4x" />
+
+            <TextView
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/lobster"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_marginStart="@dimen/dimen_2x"
+                android:layout_toEndOf="@id/img_logo"
+                android:layout_centerVertical="true"
+                android:text="@string/text_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lt_setting"
+                android:background="@drawable/rip_circle_blue"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="anim/anim_setting.json"
+                app:lottie_loop="true" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/view_permission"
+        android:visibility="visible"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/ic_logo"
+            android:layout_width="@dimen/dimen_4x"
+            android:layout_height="@dimen/dimen_4x" />
+
+        <TextView
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginTop="@dimen/dimen_1x"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/APP_PERMISSIONS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorWhite"
+            android:text="@string/Allow_Storage_Permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_allow_permission"
+            android:fontFamily="@font/lobster"
+            android:layout_marginEnd="@dimen/dimen_4x"
+            android:layout_marginStart="@dimen/dimen_4x"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            android:text="@string/allow"
+            android:layout_marginTop="@dimen/dimen_2x"
+            android:background="@drawable/rip_buttom_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</RelativeLayout>

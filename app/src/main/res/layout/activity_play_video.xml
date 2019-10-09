@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlViewTouch"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141c27"
+    tools:context=".ui.activitys.PlayVideoActivity">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+
+    <View
+        android:id="@+id/viewBackground"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackGround" />
+
+    <ImageView
+        android:id="@+id/imgThumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true" />
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:padding="12dp"
+            app:srcCompat="@drawable/back_pl" />
+
+        <TextView
+            android:id="@+id/txtTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="50dp"
+            android:layout_toEndOf="@+id/imgBack"
+            android:textColor="@color/colorWhite" />
+
+        <ImageButton
+            android:id="@+id/imgDetail"
+            android:layout_width="30dp"
+            android:layout_height="@dimen/dimen_4x"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="@dimen/dimen_2x"
+            android:background="#00000000"
+            android:padding="@dimen/dimen_3x"
+            app:srcCompat="@drawable/ic_content"
+            tools:ignore="VectorDrawableCompat" />
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/prLoadApi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/rlPlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:id="@+id/btnPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#00000000"
+            android:visibility="gone"
+            app:srcCompat="@drawable/bt_pause"
+            tools:ignore="VectorDrawableCompat" />
+
+
+        <ImageButton
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#00000000"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_playss"
+            tools:ignore="VectorDrawableCompat" />
+
+
+        <ImageButton
+            android:id="@+id/imbNext"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dimen_6x"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_next_video"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageButton
+            android:id="@+id/imbPrer"
+            android:layout_marginStart="@dimen/dimen_6x"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_prev"
+            tools:ignore="VectorDrawableCompat" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlTime"
+        android:background="@drawable/custom_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_2x">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/llskeebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rcVideo"
+            android:layout_marginBottom="@dimen/dimen_2x"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/sbVideo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:max="1000" />
+
+            <TextView
+                android:id="@+id/txtTimes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_2x"
+                android:gravity="center|right"
+                android:paddingLeft="@dimen/dimen_05x"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
+
+

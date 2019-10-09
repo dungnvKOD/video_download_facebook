@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlMainNotInternet"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/roundDialog"
+    app:corner_radius="30dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/btn_detail_video"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/text_size_normal"
+            android:padding="@dimen/dimen_x1x"
+            android:gravity="center"
+            android:text="Detail Video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_View" />
+
+        <TextView
+            android:id="@+id/btn_delete_video"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/text_size_normal"
+            android:padding="@dimen/dimen_x1x"
+            android:gravity="center"
+            android:text="Delete Video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_View" />
+
+        <TextView
+            android:id="@+id/btn_close"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/text_size_normal"
+            android:padding="@dimen/dimen_x1x"
+            android:gravity="center"
+            android:text="close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+

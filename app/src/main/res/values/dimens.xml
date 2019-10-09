@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, padding, per the Android Design guidelines. -->
+    <dimen name="dimen_05x">4dp</dimen>
+    <dimen name="dimen_1x">8dp</dimen>
+    <dimen name="dimen_x1x">12dp</dimen>
+    <dimen name="dimen_2x">16dp</dimen>
+    <dimen name="dimen_x2x">20dp</dimen>
+    <dimen name="dimen_3x">24dp</dimen>
+    <dimen name="dimen_x3x">28dp</dimen>
+    <dimen name="dimen_4x">32dp</dimen>
+    <dimen name="dimen_x4x">36dp</dimen>
+    <dimen name="dimen_5x">40dp</dimen>
+    <dimen name="dimen_6x">48dp</dimen>
+    <dimen name="dimen_7x">56dp</dimen>
+    <dimen name="dimen_8x">64dp</dimen>
+
+    <dimen name="margin_top_content">96dp</dimen>
+
+    <!-- Text size -->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_xnormal">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+
+    <!-- home screen -->
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="nav_header_height">140dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="dimen_large_icon">70dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- screen -->
+    <dimen name="height_content_comment">160dp</dimen>
+    <dimen name="height_img_header">180dp</dimen>
+    <dimen name="height_image_item">176dp</dimen>
+
+    <!-- screen -->
+    <!--item home-->
+    <dimen name="rowimage_height_width">144dp</dimen>
+    <dimen name="item_category_height">72dp</dimen>
+    <dimen name="item_category_width">160dp</dimen>
+    <dimen name="song_count_bg">70.0dip</dimen>
+    <dimen name="play_icon_height_width">40.0dip</dimen>
+    <dimen name="text_size_rowitem">13.0dip</dimen>
+    <dimen name="download_all_text_size">13.0dip</dimen>
+    <dimen name="sub_title_txt">14.0dip</dimen>
+    <!--settings fragment-->
+    <dimen name="header_txt">14.0dip</dimen>
+    <dimen name="title_txt">16.0dip</dimen>
+    <!--splash-->
+    <dimen name="sliding_pager_lay_height">180.0dip</dimen>
+    <!--media notifi-->
+    <dimen name="dimen_button_media">35.0dip</dimen>
+    <dimen name="dimen_button_close">30.0dip</dimen>
+    <dimen name="icon_album">45dp</dimen>
+    <dimen name="width_image_song">52dp</dimen>
+    <dimen name="high_image_song">64dp</dimen>
+    <dimen name="size_album_image_header">148dp</dimen>
+    <dimen name="height_item_my_music">48dp</dimen>
+    <dimen name="icon_round">34dp</dimen>
+    <dimen name="width_song_info_text_1">100dp</dimen>
+
+
+    <string name="share">Share</string>
+    <string name="rename">Rename</string>
+    <string name="detail">Detail</string>
+    <string name="delete">Delete</string>
+    <string name="date">Date</string>
+    <string name="size">Size</string>
+    <string name="path">Path</string>
+    <string name="bitrate">Bitrate</string>
+    <string name="frames">Frames</string>
+    <string name="type">Type</string>
+    <string name="resolution">Resolution</string>
+
+</resources>
