@@ -12,7 +12,7 @@
 
     <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
         android:id="@+id/round_item"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/width_song_info_text_1"
         android:layout_height="@dimen/width_song_info_text_1"
         app:corner_radius="@dimen/dimen_1x">
 

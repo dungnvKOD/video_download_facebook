@@ -1,7 +1,7 @@
 package com.dung.video_download_facebook.ui.frags
 
-
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,8 +14,6 @@ import com.dung.video_download_facebook.conmon.RxBus
 import com.dung.video_download_facebook.database.VideoData
 import com.dung.video_download_facebook.events.DeleteVideo
 import com.dung.video_download_facebook.model.DetailVideo
-
-
 import com.dung.video_download_facebook.ui.activitys.MainActivity
 import com.dung.video_download_facebook.ui.adapter.ListVideoAdapter
 import com.dung.video_download_facebook.ui.dialog.DialogDeleteVideo
@@ -24,9 +22,19 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-
 class ListVideoHistoryFragment : Fragment(), View.OnClickListener,
     ListVideoAdapter.OnClickLinstener {
+    override fun onPlayVideo(position: Int, detailVideo: DetailVideo) {
+
+    }
+
+    override fun onDetailVideo(position: Int, detailVideo: DetailVideo) {
+        DialogDeleteVideo(
+            context as Activity,
+            detailVideo,
+            position
+        ).show()
+    }
 
 
     companion object {
@@ -61,28 +69,16 @@ class ListVideoHistoryFragment : Fragment(), View.OnClickListener,
         videos = ArrayList()
         val linearLayoutManager = GridLayoutManager(activity!!, 3)
         rcv_video_history.layoutManager = linearLayoutManager
-        videoAdapter = ListVideoAdapter(activity!!, videos)
+        videoAdapter = ListVideoAdapter(activity!!, videos, "HISTORY")
         rcv_video_history.adapter = videoAdapter
         videoAdapter.setOnClickListener(this)
         fab()
         loadData()
     }
 
-
     private fun fab() {
         btn_browser.setOnClickListener(this)
         btn_download.setOnClickListener(this)
-//        menu_fab.setOnMenuToggleListener { opened ->
-//            if (opened) {
-//            } else {
-//            }
-//        }
-//
-//        menu_fab.setOnClickListener {
-//            if (menu_fab.isOpened) {
-//                menu_fab.close(true)
-//            }
-//        }
     }
 
     override fun onClick(v: View?) {
@@ -115,15 +111,12 @@ class ListVideoHistoryFragment : Fragment(), View.OnClickListener,
 
 
         RxBus.listen(DetailVideo::class.java).subscribe {
+            btn_how_to.visibility = View.GONE
+            txt_no_video.visibility = View.GONE
             videoAdapter.insertVideo(it)
         }
     }
 
-    override fun openDialog(position: Int, detailVideo: DetailVideo) {
-        Log.d(TAG, "dung  :  $position")
-//        dialogDeleteVideo = DialogDeleteVideo(context as MainActivity, detailVideo, position)
-//        dialogDeleteVideo.show()
-    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: DeleteVideo) {
@@ -132,7 +125,6 @@ class ListVideoHistoryFragment : Fragment(), View.OnClickListener,
 
     override fun onDestroy() {
         super.onDestroy()
-
         EventBus.getDefault().unregister(this)
     }
 

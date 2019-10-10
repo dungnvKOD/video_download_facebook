@@ -19,4 +19,12 @@
     <!--    webview-->
     <string name="back">back</string>
     <string name="nexts">next</string>
+
+    <!--fragment setting-->
+    <string name="howTo_use">How to use</string>
+    <string name="setting_private_policy">Policy</string>
+    <string name="setting_share_to_friends">Share to friends</string>
+    <string name="setting_feedback">Feedback</string>
+    <string name="setting_give_stars">Rate us</string>
+    <string name="setting_about">About</string>
 </resources>

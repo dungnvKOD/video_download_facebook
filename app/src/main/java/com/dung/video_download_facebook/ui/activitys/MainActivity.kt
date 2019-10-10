@@ -183,7 +183,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        Toast.makeText(this, "ok...", Toast.LENGTH_LONG).show()
+//        Toast.makeText(this, "ok...", Toast.LENGTH_LONG).show()
     }
 
 

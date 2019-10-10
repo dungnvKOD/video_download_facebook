@@ -12,6 +12,7 @@ import android.os.Message
 import android.util.Log
 import android.util.TypedValue
 import android.widget.RelativeLayout
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.dung.video_download_facebook.R
 import com.dung.video_download_facebook.conmon.RxBus
@@ -33,12 +34,10 @@ class DialogDownloading(private val activity: Activity, var url: String) : Dialo
         setContentView(R.layout.dialog_downloading)
         setCanceledOnTouchOutside(false)
 
-
 //            Glide.with(context)
 //                .load(url)
 //                .thumbnail(Glide.with(context).load(url))
 //                .into(imgThumbnai)
-
 
         handler = @SuppressLint("HandlerLeak")
         object : Handler() {
@@ -47,22 +46,20 @@ class DialogDownloading(private val activity: Activity, var url: String) : Dialo
 
                 if (msg.what == what) {
                     val bundle = msg.data
-//                    val url: String = bundle["URL"] as String
                     val name: String = bundle["NAME"] as String
-//                    val progress: Int = bundle["PROGRESS"] as Int
                     txtNameFile.text = name
 
                     val hide = 0.6 * msg.arg1
                     updateProgress(hide.toInt())
                     if (msg.arg1 == 100) {
+                        Toast.makeText(activity, "Download Success !", Toast.LENGTH_LONG).show()
                         cancel()
                     }
-
-                    txtTextPro.text = msg.arg1.toString()+"%"
+                    txtTextPro.text = msg.arg1.toString() + "%"
                 }
-
             }
         }
+
         initView()
     }
 
@@ -93,11 +90,8 @@ class DialogDownloading(private val activity: Activity, var url: String) : Dialo
             activity.runOnUiThread {
                 //                txtTextPro.text = it.process.toString() + "%"
 
-                Log.d(TAG, "${it.process}%")
-
                 val messenger: Message = Message()
                 messenger.arg1 = it.process
-
 
                 val bundle = Bundle()
                 bundle.putString("NAME", it.name)

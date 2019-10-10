@@ -14,7 +14,13 @@ object Constant {
     const val BASE_URL = "https://bitdownloader.com/download?video="
     const val BASE_URL_PREVENTIVE = "https://www.getfvid.com/downloader"
     const val CHANNEL_ID = "ENDLESS SERVICE CHANNEL"
-    const val FOLDER_VIDEO="FB"
+    const val FOLDER_VIDEO = "FB"
+    const val POSITION = "POSITION"
+    const val PATH = "PATH"
+    const val DATE = "DATE"
+    const val URL="URL"
+    const val PLAY_VIDEO_URL="PLAY_VIDEO_URL"
+
 
 
 //    DATA BASE

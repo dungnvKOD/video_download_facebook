@@ -29,6 +29,9 @@ class DialogDeleteVideo(
         btn_close.setOnClickListener(this)
         btn_delete_video.setOnClickListener(this)
         btn_detail_video.setOnClickListener(this)
+
+        btn_delete_video.visibility = View.VISIBLE
+
     }
 
 

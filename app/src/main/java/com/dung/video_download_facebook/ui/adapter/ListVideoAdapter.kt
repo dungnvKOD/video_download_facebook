@@ -1,8 +1,10 @@
 package com.dung.video_download_facebook.ui.adapter
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dung.video_download_facebook.R
+import com.dung.video_download_facebook.conmon.Constant
 import com.dung.video_download_facebook.events.DeleteVideo
 import com.dung.video_download_facebook.model.DetailVideo
 import com.dung.video_download_facebook.ui.activitys.MainActivity
@@ -29,7 +32,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ListVideoAdapter(private var context: Context, private var videos: ArrayList<DetailVideo>) :
+class ListVideoAdapter(
+    private var context: Context,
+    private var videos: ArrayList<DetailVideo>,
+    private var from: String
+) :
     RecyclerView.Adapter<ListVideoAdapter.VideoViewHodel>() {
 
     private val inflater = LayoutInflater.from(context)
@@ -44,9 +51,17 @@ class ListVideoAdapter(private var context: Context, private var videos: ArrayLi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHodel {
-        val view = inflater.inflate(R.layout.item_view, parent, false)
+        var view: View? = null
+        if (from == "HISTORY") {
 
-        return VideoViewHodel(view)
+            view = inflater.inflate(R.layout.item_view, parent, false)
+
+        } else if (from == "PLAY_VIDEO") {
+
+            view = inflater.inflate(R.layout.item_play_video, parent, false)
+        }
+
+        return VideoViewHodel(view!!)
 
     }
 
@@ -65,15 +80,37 @@ class ListVideoAdapter(private var context: Context, private var videos: ArrayLi
         holder.txt_time.text = SimpleDateFormat("mm:ss").format(Date(video.duration!!.toLong()))
         holder.img_detail.setOnClickListener {
 
-            DialogDeleteVideo(context as MainActivity, video, holder.adapterPosition).show()
-            Log.d(TAG, "dung  : ${holder.adapterPosition}")
+
+            onClickLinstener.onDetailVideo(holder.adapterPosition, video)
         }
 
         holder.round_item.setOnClickListener {
-            val intent = Intent(context, PlayVideoActivity::class.java)
-            context.startActivity(intent)
+            if (context is MainActivity) {
+                onPlayVideo(holder.adapterPosition, video)
 
+            } else {
+                onClickLinstener.onPlayVideo(holder.adapterPosition, video)
+            }
         }
+    }
+
+    fun onPlayVideo(position: Int, detailVideo: DetailVideo) {
+        val intent = Intent(context, PlayVideoActivity::class.java)
+        val bundle = Bundle()
+        bundle.putBoolean(Constant.PLAY_VIDEO_URL, false)
+        bundle.putInt(Constant.POSITION, position)
+        bundle.putString(Constant.PATH, detailVideo.paths)
+        bundle.putString(Constant.NAME_VIDEO, detailVideo.nameVideo)
+        bundle.putString(Constant.DURATION, detailVideo.duration)
+        bundle.putString(Constant.BITRATE, detailVideo.bitrate)
+        bundle.putString(Constant.DATE, detailVideo.dates)
+        bundle.putString(Constant.THUMB, detailVideo.thumb)
+        bundle.putLong(Constant.SIZES, detailVideo.sizes)
+        bundle.putString(Constant.TYPE, detailVideo.type)
+        bundle.putString(Constant.FRAMES, detailVideo.frames)
+        bundle.putString(Constant.RESOLUTION, detailVideo.resolution)
+        intent.putExtras(bundle)
+        context.startActivity(intent)
     }
 
 
@@ -89,9 +126,8 @@ class ListVideoAdapter(private var context: Context, private var videos: ArrayLi
         fileImage.delete()
         videos.removeAt(position)
         notifyItemRemoved(position)
-        Toast.makeText(context, "pos : $position", Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, "pos : $position", Toast.LENGTH_LONG).show()
     }
-
 
     fun insertAllVideo(videosInsert: ArrayList<DetailVideo>) {
         videos.clear()
@@ -112,6 +148,7 @@ class ListVideoAdapter(private var context: Context, private var videos: ArrayLi
         val txt_time: TextView = view.txt_time
         val img_detail: ImageButton = view.findViewById(R.id.img_detail)
 
+
     }
 
     fun setOnClickListener(onClickLinstener: OnClickLinstener) {
@@ -119,11 +156,14 @@ class ListVideoAdapter(private var context: Context, private var videos: ArrayLi
     }
 
     interface OnClickLinstener {
-        fun openDialog(position: Int, detailVideo: DetailVideo)
+        fun onPlayVideo(position: Int, detailVideo: DetailVideo)
+        fun onDetailVideo(position: Int, detailVideo: DetailVideo)
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         super.onDetachedFromRecyclerView(recyclerView)
         EventBus.getDefault().unregister(this)
     }
+
+
 }
