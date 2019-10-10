@@ -2,6 +2,5 @@
 ## app download facebook
 Create by dungnvKOD
 
-![alt text](http://url/to/img.png)
-![alt text](https://github.com/dungnvKOD/video_download_facebook/blob/master/image/1.PNG)
-
+![Alt text](https://github.com/dungnvKOD/video_download_facebook/tree/master/image/sl.png "Optional title")
+![Alt text](https://github.com/dungnvKOD/video_download_facebook/tree/master/image/sl.png https://github.com/dungnvKOD/video_download_facebook/tree/master/image/sl.png "Optional title")
