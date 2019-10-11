@@ -37,6 +37,8 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         val TAG = "PlayVideoActivity"
     }
 
+    private var videos: ArrayList<DetailVideo> = ArrayList()
+    private var position: Int = -1
     private var checkClick = true
     private var handler = Handler()
     private lateinit var mRunnable: Runnable
@@ -75,7 +77,7 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
             playVidepUrl(url!!)
 
         } else {
-            val position = bundle!!.getInt(Constant.POSITION)
+            position = bundle!!.getInt(Constant.POSITION)
             val path = bundle.getString(Constant.PATH)
             val nameVideo = bundle.getString(Constant.NAME_VIDEO)
             val duration = bundle.getString(Constant.DURATION)
@@ -129,6 +131,13 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
                 checkClick = false
             }
         }
+
+        videoView.setOnCompletionListener {
+            preVideoHistory()
+
+
+        }
+
     }
 
     private fun playVidepUrl(url: String) {
@@ -150,8 +159,6 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         videoView.start()
         sbVideo(detailVideo.duration!!.toInt())
         listeners()
-
-        var videos: ArrayList<DetailVideo> = ArrayList()
 
 
         val linearLayoutManager = LinearLayoutManager(this)
@@ -241,6 +248,7 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
 
     }
 
+
     override fun onDetailVideo(position: Int, detailVideo: DetailVideo) {
         if (detailVideoPlay.nameVideo == detailVideo.nameVideo) {
             DialogDetailVideo(this, detailVideo).show()
@@ -276,14 +284,15 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         }
 
 
-//        imbNext.setOnClickListener {
-//            nextVideoHistory()
+        imbNext.setOnClickListener {
+            preVideoHistory()
+
 //            EventBus.getDefault().post(PositionVideo(posi, Constant.NEXT))
-//        }
-//        imbPrer.setOnClickListener {
-//            preVideoHistory()
+        }
+        imbPrer.setOnClickListener {
+            nextVideoHistory()
 //            EventBus.getDefault().post(PositionVideo(posi, Constant.PRE))
-//        }
+        }
 
         videoView.setOnInfoListener { _, p1, _ ->
             if (p1 == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
@@ -292,6 +301,35 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
                 playVisible()
             }
             false
+        }
+    }
+
+
+    private fun nextVideoHistory() {
+        if (position + 1 <= (videos.size - 1)) {
+            val p = position + 1
+            position = p
+            for (i in 0 until videos.size) {
+                val detailVideo = this.videos[position]
+//                path = detailVideo.paths
+//                names = detailVideo.nameVideo
+                rcVideo.scrollToPosition(position)
+                playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
+            }
+        }
+    }
+
+    private fun preVideoHistory() {
+        if ((position - 1) >= 0) {
+            val p = position - 1
+            position = p
+            for (i in 0 until videos.size) {
+                val detailVideo = videos[position]
+//                path = detailVideo.paths
+//                names = detailVideo.nameVideo
+                rcVideo.scrollToPosition(position)
+                playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
+            }
         }
     }
 
