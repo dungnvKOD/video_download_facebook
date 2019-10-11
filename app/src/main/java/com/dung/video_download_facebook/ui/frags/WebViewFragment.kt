@@ -2,7 +2,9 @@ package com.dung.video_download_facebook.ui.frags
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +17,7 @@ import com.dung.video_download_facebook.conmon.Constant
 import com.dung.video_download_facebook.conmon.RxBus
 import com.dung.video_download_facebook.events.Process
 import com.dung.video_download_facebook.ui.activitys.MainActivity
+import com.dung.video_download_facebook.ui.activitys.PlayVideoActivity
 import com.dung.video_download_facebook.ui.dialog.DialogOptionalDownload
 import kotlinx.android.synthetic.main.fragment_web_view.*
 
@@ -29,11 +32,12 @@ class WebViewFragment : Fragment() {
 
     }
 
+    private var mLastClickTime: Long = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_web_view, container, false)
     }
 
@@ -133,6 +137,12 @@ class WebViewFragment : Fragment() {
     fun processVideo(vidData: String, vidID: String) {
         val url = Constant.PORT1 + vidID
         Log.d(TAG, "dung...$vidData")
-        DialogOptionalDownload(activity as MainActivity, vidData).show()
+
+
+        if (SystemClock.elapsedRealtime() - mLastClickTime >= 1500) {
+            mLastClickTime = SystemClock.elapsedRealtime()
+            DialogOptionalDownload(activity as MainActivity, vidData).show()
+        }
+
     }
 }

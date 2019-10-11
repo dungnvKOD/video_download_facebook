@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/lobster"
-                android:text="Download video"
+                android:text="Watch video"
                 android:textColor="#575757" />
 
             <!--            <com.github.ybq.android.spinkit.SpinKitView-->

@@ -169,9 +169,9 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         adapter.setOnClickListener(this)
 
         videos = database.getAllVideo()
-//        videos.sortedWith(compareBy {
-//            it.nameVideo!!.substring(0, it.nameVideo!!.lastIndexOf(".")).toLong()
-//        })
+        videos.sortedWith(compareBy {
+            it.nameVideo!!.substring(0, it.nameVideo!!.lastIndexOf(".")).toLong()
+        })
         adapter.insertAllVideo(videos)
         rcVideo.scrollToPosition(position)
         adapter.setOnClickListener(this)
@@ -307,7 +307,7 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
             val p = position + 1
             position = p
             val detailVideo = this.videos[position]
-            rcVideo.scrollToPosition(position)
+//            rcVideo.scrollToPosition(position)
             playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
 
         }
@@ -318,7 +318,7 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
             val p = position - 1
             position = p
             val detailVideo = videos[position]
-            rcVideo.scrollToPosition(position)
+//            rcVideo.scrollToPosition(position)
             playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
 
         }

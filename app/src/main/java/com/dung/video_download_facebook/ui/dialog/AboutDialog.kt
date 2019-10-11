@@ -22,13 +22,13 @@ class AboutDialog(context: Context) : Dialog(context) {
             dismiss()
         }
 
-        txtCheckUpdate.setOnClickListener {
-            val packageName = context.packageName
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
-            context.startActivity(intent)
-            dismiss()
-        }
+//        txtCheckUpdate.setOnClickListener {
+//            val packageName = context.packageName
+//            val intent = Intent(Intent.ACTION_VIEW)
+//            intent.data = Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+//            context.startActivity(intent)
+//            dismiss()
+//        }
     }
 
     fun container(): AboutDialog {
