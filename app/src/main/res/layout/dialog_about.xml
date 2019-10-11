@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+        android:id="@+id/rlMainNotInternet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/roundDialog"
+        app:corner_radius="20dp">
+
+        <ImageView
+            android:layout_marginEnd="@dimen/dimen_1x"
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            tools:ignore="VectorDrawableCompat" />
+        <TextView
+
+            android:id="@+id/txtTitle"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/dimen_1x"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imgLogo"
+            android:text="About"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtVersion"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:textAllCaps="true"
+            android:layout_marginTop="22dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtTitle"
+            android:text="Version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtRight"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dimen_1x"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtVersion"
+            android:text="1.0.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtCheckUpdate"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtRight"
+            android:gravity="center"
+            android:textSize="@dimen/dimen_2x"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_below="@+id/txtCheckUpdate"
+            android:id="@+id/txtCloseAbout"
+            android:background="@drawable/rip_close"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/dimen_2x"
+            android:layout_marginTop="@dimen/dimen_1x"
+            android:textColor="#292828"
+            android:layout_centerHorizontal="true"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="close"
+            android:textSize="@dimen/dimen_2x"/>
+    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+</RelativeLayout>

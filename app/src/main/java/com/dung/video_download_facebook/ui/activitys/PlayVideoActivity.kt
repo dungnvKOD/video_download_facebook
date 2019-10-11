@@ -169,9 +169,9 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         adapter.setOnClickListener(this)
 
         videos = database.getAllVideo()
-        videos.sortedWith(compareBy {
-            it.nameVideo!!.substring(0, it.nameVideo!!.lastIndexOf(".")).toLong()
-        })
+//        videos.sortedWith(compareBy {
+//            it.nameVideo!!.substring(0, it.nameVideo!!.lastIndexOf(".")).toLong()
+//        })
         adapter.insertAllVideo(videos)
         rcVideo.scrollToPosition(position)
         adapter.setOnClickListener(this)
@@ -260,7 +260,7 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
 
     override fun onPlayVideo(position: Int, detailVideo: DetailVideo) {
 
-
+        this.position = position
         val uri = Uri.parse("${detailVideo.paths}/${detailVideo.nameVideo}")
         videoView.requestFocus()
         videoView.setVideoURI(uri)
@@ -286,12 +286,9 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
 
         imbNext.setOnClickListener {
             preVideoHistory()
-
-//            EventBus.getDefault().post(PositionVideo(posi, Constant.NEXT))
         }
         imbPrer.setOnClickListener {
             nextVideoHistory()
-//            EventBus.getDefault().post(PositionVideo(posi, Constant.PRE))
         }
 
         videoView.setOnInfoListener { _, p1, _ ->
@@ -309,13 +306,10 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         if (position + 1 <= (videos.size - 1)) {
             val p = position + 1
             position = p
-            for (i in 0 until videos.size) {
-                val detailVideo = this.videos[position]
-//                path = detailVideo.paths
-//                names = detailVideo.nameVideo
-                rcVideo.scrollToPosition(position)
-                playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
-            }
+            val detailVideo = this.videos[position]
+            rcVideo.scrollToPosition(position)
+            playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
+
         }
     }
 
@@ -323,13 +317,10 @@ class PlayVideoActivity : AppCompatActivity(), ListVideoAdapter.OnClickLinstener
         if ((position - 1) >= 0) {
             val p = position - 1
             position = p
-            for (i in 0 until videos.size) {
-                val detailVideo = videos[position]
-//                path = detailVideo.paths
-//                names = detailVideo.nameVideo
-                rcVideo.scrollToPosition(position)
-                playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
-            }
+            val detailVideo = videos[position]
+            rcVideo.scrollToPosition(position)
+            playVideoHistory(detailVideo, detailVideo.duration!!.toInt())
+
         }
     }
 
